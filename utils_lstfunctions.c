@@ -6,7 +6,7 @@
 /*   By: tissad <issad.tahar@icloud.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:48:25 by tissad            #+#    #+#             */
-/*   Updated: 2023/11/22 13:39:11 by tissad           ###   ########.fr       */
+/*   Updated: 2023/11/29 17:29:07 by tissad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	lst_del(void *content)
 	content = NULL;
 }
 
-void	*lst_mdifcontent(void *content)
+void	*lst_ultimatemdifcontent(void *content)
 {
 	int	*n;
 	int	*c;
@@ -53,6 +53,15 @@ void	*lst_mdifcontent(void *content)
 	*n = *c + 10;
 	return ((void *)n);
 }
+
+void	lst_modifcontent(void *content)
+{
+	int *c;
+
+	c = (int *) content;
+	*c += 10;
+}
+
 
 t_list	*lst_create(void (*ft_lstadd)(t_list **, t_list *))
 {

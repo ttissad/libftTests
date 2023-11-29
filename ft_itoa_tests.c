@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_itoa_tests.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tissad <issad.tahar@icloud.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 13:57:27 by tissad            #+#    #+#             */
-/*   Updated: 2023/11/29 18:32:27 by tissad           ###   ########.fr       */
+/*   Created: 2023/11/29 14:48:42 by tissad            #+#    #+#             */
+/*   Updated: 2023/11/29 15:09:09 by tissad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_tests.h"
 
-int	main(void)
+int	ft_itoa_test(int n)
 {
-	ft_calloc_tests();
-	ft_isc_tests();
-	ft_atoi_tests();
-	ft_itoa_tests();
-	ft_bzero_tests();
-	ft_strtrim_tests();
-	ft_lstnew_tests();
-	ft_lstadd_front_tests();
-	ft_lstadd_back_tests();
-	ft_lstsize_tests();
-	ft_lstdelone_tests();
-	ft_lstclear_tests();
-	ft_lstlast_tests();
-	ft_lstiter_tests();
-	ft_lstmap_tests();
+	char *res;
 
-	return(0);
+	res = ft_itoa(n);
+	if(!res)
+		return (0);
+	if(n == atoi(res))
+	{
+		free(res);
+		return (1);
+	}
+	free(res);
+	return (0);
+}
+
+int	ft_itoa_tests(void)
+{
+	ft_printstr("\n\nft_itoa\t\t\t");
+	ft_print_res(ft_itoa_test(0), "T0:");
+	ft_print_res(ft_itoa_test(INT_MAX), "T1:");
+	ft_print_res(ft_itoa_test(INT_MIN), "T2:");
+	return (0);
 }

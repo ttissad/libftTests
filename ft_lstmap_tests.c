@@ -6,7 +6,7 @@
 /*   By: tissad <issad.tahar@icloud.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:02:47 by tissad            #+#    #+#             */
-/*   Updated: 2023/11/27 15:03:45 by tissad           ###   ########.fr       */
+/*   Updated: 2023/11/29 17:32:25 by tissad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,17 @@ int	ft_lstmap_tests(void)
 	t_list	*lst;
 	t_list	*newlst;
 
-	ft_printstr("\nft_lstmap : ");
+	ft_printstr("\n\nft_lstmap\t\t");
 /*==============================TEST0=========================================*/
 	lst = NULL;
-	newlst = ft_lstmap(lst, lst_mdifcontent, lst_del);
-	ft_print_res(ft_lstmap_test0(lst, newlst), "T0 : ");
+	newlst = ft_lstmap(lst, lst_ultimatemdifcontent, lst_del);
+	ft_print_res(ft_lstmap_test0(lst, newlst), "T0:");
 	if (newlst)
 		ft_lstclear(&newlst, lst_del);
 /*==============================TEST1=========================================*/
 	lst = lst_create(ft_lstadd_front);
-	newlst = ft_lstmap(lst, lst_mdifcontent, lst_del);
-	ft_print_res(ft_lstmap_test1(lst, newlst), "T1 : ");
+	newlst = ft_lstmap(lst, lst_ultimatemdifcontent, lst_del);
+	ft_print_res(ft_lstmap_test1(lst, newlst), "T1:");
 /*===============================MEMFREE======================================*/
 	ft_lstclear(&lst, lst_del);
 	ft_lstclear(&newlst, lst_del);

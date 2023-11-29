@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_tests.c                            :+:      :+:    :+:   */
+/*   ft_lstiter_tests.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tissad <issad.tahar@icloud.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 13:28:30 by tissad            #+#    #+#             */
-/*   Updated: 2023/11/29 15:36:43 by tissad           ###   ########.fr       */
+/*   Created: 2023/11/29 17:34:37 by tissad            #+#    #+#             */
+/*   Updated: 2023/11/29 18:02:45 by tissad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_tests.h"
 
-int	ft_lstadd_front_test0(t_list *lst)
+int	ft_lstiter_test(t_list **lst)
 {
-	t_list	*current;
+	t_list *current;
+	int i;
 
-	current = lst;
-	while (current->next)
+	current = *lst;
+	i = 0;
+	while (current)
 	{
-		if (*(int *)current->content < *(int *)current->next->content)
+		if(*(int *)(current->content) - 10 != i)
 			return (0);
+		i++;
 		current = current->next;
 	}
 	return (1);
 }
-int	ft_lstadd_front_tests()
+
+int	ft_lstiter_tests(void)
 {
 	t_list *lst;
 
-	ft_printstr("\n\nft_lstadd_front\t\t");
-	lst = lst_create(ft_lstadd_front);
-/*===================================TEST0====================================*/
-	ft_print_res(ft_lstadd_front_test0(lst), "T0:");
-/*===================================MEMFREE==================================*/
+	ft_printstr("\n\nft_lstiter\t\t");
+	lst = lst_create(ft_lstadd_back);
+	ft_lstiter(lst, lst_modifcontent);
+	ft_print_res(ft_lstiter_test(&lst), "T0:");
 	ft_lstclear(&lst, lst_del);
 	return (0);
 }
